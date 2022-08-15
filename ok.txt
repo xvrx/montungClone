@@ -1,0 +1,100 @@
+=========== MONTUNG P2 ==============
+progress management / conversion counter / trajectory & target / instructions / live chat
+latest update on regulations / 
+
+resolution (1280 x 881 )
+
+---	complete data sets
+---	tahapan ([], nama tahapan, deskripsi tahapan), kendala ([]), SKP terbit & pencairan ([], no SKP, no LHP, Nominal), proyeksi SKP ([], jenis pajak, nominal)
+
+
+
+
+* Overview :
+---	apply numbers on graph (chart js)
+---	reduce main table size (grid)
+
+
+
+* Usulan :
+---	generate docx (instruksi nadine) based on multiple data & automatically adjust criteria --> server generated docx
+
+
+
+tambah usulan: 
+(v) npwp(nama, alamat, KLU, AR, jenis (strat/kewilayahan) ), 
+(v)	masa,
+(v)	kode (kriteria, deskripsi kode), 
+(v)	nomor usulan, tanggal usulan,
+(v)	nomor instruksi, tanggal instruksi,
+(v)	Supervisor (input - selectable),
+(v)	ND penunjukanSPV, tanggal penunjukan SPV,
+(v)	ND Audit Plan, tanggal ND,
+--- Audit plan - select anggota tim (react/icons: FaUserPlus)
+(v)	SP2, tanggal SP2,
+(v)	discard button (unlike close, will reset the entire input form value)
+(v)	save button
+	notif on save :
+(v)	 -if sp2,tgl sp2, length > 0 --- ubah status mjd tunggakan? yes/no
+(v)	 -if sp2,tgl sp2, length === 0 --- usulan disimpan
+
+tambah usulan - backend :
+--- function - download ND penunjukanSPV
+
+
+
+* tunggakan :
+
+(v)	search, 
+(v)	kriteria(check/uncheck), 
+---	export XLS,
+---	header/sort (no, nama, npwp, kode, masa, tanggal SP2, proyeksi,pic,tahapan)
+
+tunggakan edit modal array:
+(v) Profile WP
+(v) Pemeriksa pajak
+-v- tanggal mulai pemeriksaan
+-v-	tahapan ([]),
+-v-	kendala ([]),
+-v-	proyeksi selesai (tanggal LHP),
+-v-	proyeksi nilai SKP,
+-v-	proyeksi nilai cair SKP,
+-v-	proyeksi tanggal cair SKP,
+-v-	input [no,tanggal] LHP
+-v-	input [nilai] SKP
+--- Modal tambah tahapan
+
+
+
+* LHP Selesai :
+(v) No, 
+(v) Nama, 
+(v) NPWP, 
+(v) Kode, 
+(v) Masa, 
+(v) No LHP (Tanggal LHP), 
+(v) konversi , 
+(v) Nilai SKP, 
+(v) disetujui, 
+(v) Pencairan SKP,
+--- query skp?
+
+
+
+* profile tab (personal stats):
+
+---	-spider/radar chart :
+---	  	  -Penerbitan SKP
+---  	  -Realisasi SKP
+--- 	  -Ketepatan LHP
+
+
+
+	SPV:
+---	- pencairan / target pencairan / skp terbit * per SPV
+
+
+	nonSPV:
+---	- konversi / target per FPP
+
+

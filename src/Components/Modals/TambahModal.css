@@ -1,0 +1,444 @@
+
+
+.tambah-modal-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tambah-modal-container::-webkit-scrollbar {
+    position: absolute;
+    width: 10px;
+    border-radius: 5px;
+  }
+  
+  .tambah-modal-container::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 5px;
+  }
+   
+  .tambah-modal-container::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+  }
+  
+  .tambah-modal-container:hover::-webkit-scrollbar-thumb {
+    background: #494949; 
+  }
+
+.tambah-modal-subcontainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: fit-content;
+}
+
+.tambah-modal-inner{
+    position: relative;
+    transform: translateY(10%);
+    min-width: 67em;
+    min-height: 38em;
+    max-height: 70em;
+    background-color: #2a2e31;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+.tambah-modal-close{
+    padding-top: 3px;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    /* transform: translateY(-15px); */
+    cursor: pointer;
+}
+.tambah-modal-close:active{
+    transform: translateY(2px);
+}
+
+.tambah-modal-title{
+    margin-top: 1%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.tambah-modal-sub-title{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+    color: #bdbdbd;
+    margin-left: 20px;
+}
+
+.content-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    height: 83%;
+}
+
+.tambah-modal-content{
+    /* border: 2px solid aqua; */
+    width: 97%;
+    height: fit-content;
+    text-align: center;
+}
+
+.modal-input-tambah{
+    /* padding-right: 5px; */
+    width: 124px;
+    font-family: 'Poppins', sans-serif;
+    left: 0;
+    color: #ffffff;
+    border: none;
+    background: none;
+    outline: none;
+    text-decoration: none;
+    
+    /* width: 250px; */
+}
+
+.modal-input-tambah::-webkit-outer-spin-button,
+.modal-input-tambah::-webkit-inner-spin-button
+ {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.modal-input-tambah:focus + .tambah-modal-text,
+.modal-input-tambah:valid + .tambah-modal-text
+{
+    color: #fdbc2c;
+    transform: translate(-4px,-20px) scale(0.8);
+}
+
+.modal-input-tambah:focus ~ .tambah-modal-line,
+.modal-input-tambah:valid ~ .tambah-modal-line
+{
+    background-color: aqua;
+}
+
+#tambah-npwp-logo{
+    position: absolute;
+    left: -20px;
+    bottom: -3px;
+}
+
+#tambah-npwp-logo:hover::after{
+    content: '';
+    
+}
+
+ .modal-input-container{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    width: 100px;
+    cursor:text;
+    margin: 0 30px;
+}
+.tambah-modal-line{
+    position: absolute;
+    background-color: rgb(255, 72, 72);
+    left: 0;
+    bottom: -2px;
+    width: 120px;
+    height: 1px;
+    cursor:text;
+    transition: all 0.2s ease-in-out;
+} 
+.tambah-modal-text {
+    user-select: none;
+    position:absolute;
+    left: 0;
+    bottom: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor:text;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group-1{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.input-group-2{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+
+
+#tambah-deskripsiKode #tambah-deskripsi-kode{
+    width: 42.5em;
+}
+
+
+#tambah-deskripsiKode .tambah-modal-text{
+    text-align: start;
+    width: 55em;
+}
+
+.modal-input-tambah:focus ~ #tambah-modal-deskripsiKode,
+.modal-input-tambah:valid ~ #tambah-modal-deskripsiKode { 
+    color: #fdbc2c;
+    transform: translate(-80px,-20px) scale(0.8);
+}
+
+#tambah-deskripsiKode #tambah-modal-deskripKode-garis{
+    width: 38em;
+}
+
+#tambah-jenis-wp{
+    margin: 0;
+    margin-left: 5px;
+    width: 50%;
+    display: flex;
+}
+
+#tambah-jenis-wp p{
+    font-size: 0.8rem;
+}
+
+#tambah-jenis-wp select{
+    font-family: inherit;
+    cursor: pointer;
+    color: #fdbc2c;
+    background : none;
+    /* background-color: #fdbc2c; */
+    border: none;
+    outline: none;
+    padding-right: 6px;
+    -webkit-appearance: none;
+}
+
+#tambah-jenis-wp select:focus{
+    background-color: #2a2e31 ;
+    border: none;
+}
+
+#tambah-spv {
+	position: absolute;
+	display: flex;
+	width: 251px;
+	top: 28px;
+	left: -30px;
+	display: flex;
+}
+
+#tambah-spv p{
+    font-size: 0.8rem;
+}
+
+#tambah-spv select{
+    font-family: inherit;
+    cursor: pointer;
+    color: #fdbc2c;
+    background : none;
+    /* background-color: #fdbc2c; */
+    border: none;
+    outline: none;
+    padding-right: 6px;
+    -webkit-appearance: none;
+}
+
+
+#tambah-spv select:focus{
+    background-color: #2a2e31 ;
+    border: none;
+}
+
+#tambah-tim{
+    position: absolute;
+    left: -32px;
+    top: 28px;
+    width: 274px;
+    display: flex;
+}
+
+#tambah-tim p{
+    font-size: 0.8rem;
+}
+#tambah-tim label{
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+#tambah-modal-tambah-tim{
+    color:#fdbc2c;
+    cursor: pointer;
+}
+
+#tambah-modal-tambah-tim:active{
+    transform: translateY(2px);
+}
+
+.input-group-3{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+#tambah-nomorUsulan{
+    text-align: start;
+    width:14em ;
+}
+#tambah-nomorInstruksi{
+    text-align: start;
+    width:14em ;
+}
+
+#tambah-tanggal-usulan {
+    margin-right: 5em;
+}
+
+
+#tambah-nomor-usulan{
+    width:19.3em
+}
+#tambah-nomor-instruksi{
+    width:19.3em
+}
+#tambah-nomor-penunjukanSpv{
+    width:19.3em
+}
+#tambah-nomor-auditplan{
+    width:19.3em
+}
+#tambah-nomor-SP2{
+    width:19.3em
+}
+
+.modal-input-tambah:focus ~ #tambah-nomor-usulan-label,
+.modal-input-tambah:valid ~ #tambah-nomor-usulan-label { 
+    color: #fdbc2c;
+    transform: translate(-13px,-20px) scale(0.8);
+}
+
+.modal-input-tambah:focus ~ #input-group-4x-notice,
+.modal-input-tambah:valid ~ #input-group-4x-notice { 
+    transform: translateY(25px);
+    opacity: 1;
+}
+
+
+#tambah-nomorUsulan #tambah-nomor-usulan-garis{
+    width:17em;
+}
+#tambah-nomorInstruksi #tambah-nomor-usulan-garis{
+    width:17em;
+}
+
+.input-group-4{
+    display: flex;
+    margin-bottom: 4em;
+}
+
+.input-group-4x{
+    position: relative;
+    margin-right: 1.9em;
+    display: flex;
+}
+
+#input-group-4x-notice{
+    position: absolute;
+    transition: transform 0.34s ease, opacity 0.34s ease;
+    width: 250px;
+    color: #df5d5b;
+    font-size: 0.8rem;
+    bottom: -15px;
+    left: 0px;
+    user-select: none;
+    opacity: 0;
+    
+
+    z-index: -99;
+}
+
+
+#tambah-modal-button-cetaktunjukspv{
+    color: rgb(147, 230, 53);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid rgb(147, 230, 53);
+    background: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: color 0.15s ease-in-out, border 0.15s ease-in-out;
+    margin-right: 10px;
+}
+
+#tambah-modal-button-cetaktunjukspv:hover{
+    cursor: pointer;
+    color: #fdbc2c;
+    border: 1px solid #fdbc2c;
+}
+
+#tambah-modal-button-cetaktunjukspv:active{
+    transform: translateY(2px);
+}
+
+input[type='date'] {
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: #6f8696;
+    border-radius: 10px;
+}
+
+#tambah-modal-button-submit{
+    color: #FE413D;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #FE413D;
+    background: none;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: color 0.15s ease-in-out, border 0.15s ease-in-out;
+}
+
+#tambah-modal-button-discard{
+    color: #999999;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #999999;
+    background: none;
+    margin-right: 1.5em;
+    padding: 5px;
+    border-radius: 5px;
+    transition: color 0.15s ease-in-out, border 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+#tambah-modal-button-submit:hover{
+    cursor: pointer;
+    color: #fdbc2c;
+    border: 1px solid #fdbc2c;
+}
+
+#tambah-modal-button-submit:active{
+    transform: translateY(2px);
+}
+#tambah-modal-button-discard:hover{
+    cursor: pointer;
+    color: #fdbc2c;
+    border: 1px solid #fdbc2c;
+}
+
+#tambah-modal-button-discard:active{
+    transform: translateY(2px);
+}

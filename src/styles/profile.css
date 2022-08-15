@@ -1,0 +1,105 @@
+.profile-nav-container{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-nav-bell{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.4em;
+    cursor: pointer;
+}
+
+.profile-nav-bell:active > #nav-bell-icon{
+    transform: translateY(2px);
+}
+
+.profile-nav-bell-backgr{
+    position: absolute;
+    background: linear-gradient(to right,rgba(153, 153, 153, 0.3), #272b2e);
+    left: 0;
+    width: 159%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.profile-nav-bell:hover > .profile-nav-bell-backgr{
+    opacity: 1;
+}
+
+.profile-nav-bio{
+    font-size: 0.75rem;
+    color: rgb(214, 214, 214);
+    font-family: 'Poppins', sans-serif;
+    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1.2em;
+    text-align: end;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.profile-nav-bio:active{
+    transform: translateY(2px);
+}
+
+.profile-nav-bio-backgr{
+    border-radius: 0px 20px 0 0px;
+    position: absolute;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(to right, #272b2e, rgba(189, 189, 189, 0.3));
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.profile-nav-bio:hover > .profile-nav-bio-backgr{
+    opacity: 1;
+}
+
+.profile-identity p {
+    height: auto;
+    font-weight: 300;
+    color: rgb(160, 160, 160);
+} 
+
+.profile-nav-bio img{
+    margin-left: 10px;
+    border-radius: 10px ;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.profile-layout-line{
+    position: absolute;
+    bottom:2px ;
+    width: 98%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(194, 194, 194, 0), rgba(173, 173, 173, 0.75), rgba(192, 192, 192, 0));
+}
+.profile-deadline-container{
+    text-align: center;
+}
+
+.deadline-remainings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+.deadline-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

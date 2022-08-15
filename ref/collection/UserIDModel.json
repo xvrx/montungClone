@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "6289c98f7a36d04a64bd656f"
+  },
+  "nama": "Azrael Situmorang",
+  "pics": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+  "notif": 0,
+  "nip": "817931767",
+  "jabatan": "pelaksana",
+  "posisi": "Tukang Lempar Balok",
+  "pangkat": "II/a",
+  "unit": "Seksi P3",
+  "bio": "life is suffering, death is deliverance",
+  "NIP": "200011215 156 485",
+  "role": "admin"
+},{
+  "_id": {
+    "$oid": "6289f8577a36d04a64bd6585"
+  },
+  "nama": "Panjee Y W",
+  "pics": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+  "notif": 0,
+  "nip": "810202918",
+  "jabatan": "fpp",
+  "posisi": "Tukang bakar ubi",
+  "pangkat": "II/c",
+  "unit": "Seksi P3",
+  "bio": "ngomong opo cuk",
+  "NIP": "1996085726 156 485",
+  "role": "fppspv"
+},{
+  "_id": {
+    "$oid": "628a17be7a36d04a64bd6586"
+  },
+  "nama": "Osama Bin Laid Em'",
+  "pics": "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+  "notif": 0,
+  "nip": "817931707",
+  "jabatan": "Ketua Tim",
+  "posisi": "Tukang bakar ubi",
+  "pangkat": "II/c",
+  "unit": "Seksi P3",
+  "bio": "Ledakan adalah seni",
+  "NIP": "1241123 123123 1231",
+  "role": "fpp"
+}]

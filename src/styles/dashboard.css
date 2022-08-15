@@ -1,0 +1,60 @@
+:root{
+    --font-1 :#FFFFFF;
+    --font-2 :#A5A7AB;
+    --search : #2E3137;
+    --search-2 : #DEE0E2;
+    --main : #212528;
+    --submain : #2A2E31;
+    --light-1 : #FE413D;
+    --profile : #272B2E;
+  }
+
+
+.dashboard-main-container{
+    font-family: 'Poppins', sans-serif;
+    margin: 40px 40px 20px 40px;
+    margin-top: 40px;
+}
+
+.dashboard-main-menu{
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    list-style: none;
+    position: relative;
+    
+}
+
+.dashboard-main-menu .menu.inactive{
+    display: flex;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 10px 0 0 0;
+    margin-right: 20px;
+    color:var(--font-2) ;
+    transition : all 0.2s ease;
+    align-items: center;
+}
+.dashboard-main-menu .menu.active{
+    transition : all 0.2s ease ;
+    font-size: 1rem;
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+    align-self: center;
+}
+
+.dashboard-main-menu .menu.active:active,.dashboard-main-menu .menu.inactive:active {
+    transform: translateY(5px);
+}
+
+.menu-active-indicator{
+    position: absolute;
+    background-color: var(--light-1);
+    width: 50px;
+    height: 3px;
+    bottom: -10px;
+}

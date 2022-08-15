@@ -1,0 +1,9 @@
+axios does not include cookie in req header =>
+	if a cookie is set from localhost:2000 
+	then it could only be set as a header upon requesting to localhost:2000
+	the same goes for 10.13.1.64 (or any other network IP)
+	do not fetch session ID from localhost and expect the cookie
+	to be included upon fetching to 10.13.1.64
+	even though localhost and network IP represents the same 
+	address, but chrome (or some any other browser) will identify those as different
+	

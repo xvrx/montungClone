@@ -1,0 +1,174 @@
+.tambah-tahapan-modal-subcontainer{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* .tambah-tahapan-modal-inner{
+  position: relative;
+  transform: translateY(30%);
+  width: 459px;
+  height: 392px;
+  background-color: #2a2e31;
+  border-radius: 10px;
+  overflow: hidden;
+} */
+
+.tambah-tahapan-modal-inner{
+  position: relative;
+  transform: translateY(30%);
+  width: 459px;
+  min-height: 375px;
+  max-height: 400px;
+  background-color: #2a2e31;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+
+
+
+.tambah-tahapan-modal-title{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.tambah-tahapan-content-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  height: 254px;
+}
+
+.tambah-tahapan-modal-content{
+    width: 302px;
+    height: 100%;
+    margin: 0 56px;
+}
+
+#tambah-tahapan-input-tanggal{
+  padding: 5px;
+  border: none;
+  outline: none;
+  background-color: #fdbc2c;
+  /* background-color: #fccf3a; */
+  border-radius: 10px;
+  width: 113px;
+}
+
+
+.tambah-tahapan-modal-button{
+display: flex;
+width: 100%;
+justify-content: center;
+margin-top: 23px;
+}
+
+.tahapan-modal-container{
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-tahapan-input-container{
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 29px;
+  cursor: text;
+  width: fit-content;
+}
+
+.modal-tahapan-input{
+  font-family: 'Poppins', sans-serif;
+  left: 0;
+  color: #ffffff;
+  border: none;
+  background: none;
+  outline: none;
+  text-decoration: none;
+  width: 316px;
+}
+
+.tahapan-modal-line{
+  position: absolute;
+  background-color: rgb(255, 72, 72);
+  left: 0;
+  bottom: -2px;
+  width: 328px;
+  height: 1px;
+  cursor: text;
+  transition: all 0.15s ease-in-out;
+} 
+
+
+.tahapan-modal-text{
+  font-size: 0.85rem;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  left: 0px;
+  bottom: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: text;
+  transition: all 0.15s ease-in-out;
+}
+
+.modal-tahapan-input:focus ~ #modal-tahapan-input-label,
+.modal-tahapan-input:valid ~ #modal-tahapan-input-label { 
+  color: #fdbc2c;
+  transform: translate(-10px,-15px) scale(0.8);
+}
+
+.modal-tahapan-input:focus ~ .tahapan-modal-line,
+.modal-tahapan-input:valid ~ .tahapan-modal-line
+{
+  background-color: aqua;
+}
+
+
+#tambah-tahapan-input-deskripsi{
+  position: relative;
+  margin-top: 15px;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: #212324;
+  min-width: 338px;
+  max-width: 334px;
+  height: 100%;
+  min-height: 148px;
+  max-height: 237px;
+  border-radius: 10px;
+  transform: translateX(-9px);
+  padding: 10px;
+  overflow-y: auto;
+  resize: none;
+  font-size: 1rem;
+}
+
+#tambah-tahapan-input-deskripsi::-webkit-scrollbar {
+  position: absolute;
+  width: 10px;
+  border-radius: 5px;
+}
+
+#tambah-tahapan-input-deskripsi::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 5px;
+}
+ 
+#tambah-tahapan-input-deskripsi::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 5px;
+}
+
+#tambah-tahapan-input-deskripsi:hover::-webkit-scrollbar-thumb {
+  background: #494949; 
+}

@@ -1,0 +1,29 @@
+:root{
+    --font-1 :#FFFFFF;
+    --search : #2E3137;
+    --search-2 : #bdbfc0;
+    --main : #212528;
+    --submain : #2A2E31;
+    --light-1 : #FE413D;
+    --light-2 : rgb(147, 230, 53);
+  /*  ROBOTO */
+  /* MONTSERRAT */
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--font-1);
+    
+  }
+  
+  html {
+    font-size: 15px;
+    scroll-behavior: smooth;
+    
+  }
+  
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }

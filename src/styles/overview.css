@@ -1,0 +1,132 @@
+.overview-container{
+    /* border: 2px solid aqua; */
+    width: 100%;
+    min-height:25em;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* flex: 1; */
+}
+
+.overview-container::-webkit-scrollbar {
+    position: absolute;
+    width: 10px;
+    border-radius: 5px;
+  }
+  
+  .overview-container::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 5px;
+  }
+   
+  .overview-container::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+  }
+  
+  .overview-container:hover::-webkit-scrollbar-thumb {
+    background: #494949; 
+  }
+
+.overview-stats{
+    margin-bottom: 25px;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.overview-table-setting{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.stats-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.set-stats-container{
+    margin-right: 33px;
+    display: flex;
+}
+.line-stats-container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+#set-stats{
+    background-color: rgb(85, 85, 85);
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#set-stats:active {
+    transform: translateY(2px);
+}
+
+.overview-table-lists{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    gap: 1px;
+    margin-top: 20px;
+}
+
+.overview-table-box{
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid white; */
+}
+
+.overview-table-box-row{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--font-2);
+    text-align: end;
+}
+.overview-table-header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: var(--font-2);
+}
+
+.overview-target{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:50%;
+    height: fit-content;
+}
+
+.overview-target p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.overview-target-graph{
+    width: 550px;
+    max-height: fit-content;
+}
+
+.overvew-target-aktivitas{
+    margin-top: 7px;
+    width: 552px;
+}
+

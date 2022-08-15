@@ -1,0 +1,2 @@
+login jsx, wtfamidoin, montungContext = serverOrigin
+notice the use of "/" at the end of each url

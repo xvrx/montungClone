@@ -1,0 +1,83 @@
+.tambah-tim-modal-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.tambah-tim-modal-subcontainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.tambah-tim-modal-inner{
+  position: relative;
+  transform: translateY(60%);
+  width: 381px;
+  height: 266px;
+  background-color: #2a2e31;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tambah-tim-modal-close{
+    padding-top: 3px;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.tambah-tim-modal-title{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.tambah-tim-content-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: flex-start;
+    height: 83%;
+}
+.tambah-tim-modal-content{
+  display: flex;
+  width: 302px;
+  flex-direction: column;
+  height: 141px;
+  justify-content: center;
+  margin: 0 10px;
+  text-align: center;
+}
+
+
+.tambah-tim-modal-button{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 23px;
+  }
+
+  .tim-modal-spv,.tim-modal-ketua,.tim-modal-anggota-1,.tim-modal-anggota-2{
+    margin-top: 9px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tim-modal-spv select, .tim-modal-ketua select, .tim-modal-anggota-1 select, .tim-modal-anggota-2 select {
+    color: black;
+    font-family: inherit;
+    border-radius: 10px;
+    border: none;
+    background-color: #8ba3b5;
+    outline: none;
+    padding: 5px;
+    cursor: pointer;
+    width: 184px;
+  }

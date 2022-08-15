@@ -1,0 +1,207 @@
+[{
+  "_id": {
+    "$oid": "62958cde2e5d77802dbab57d"
+  },
+  "title": "ND-27/PJ/2015",
+  "hal": "Tentang Kebodohan Individu",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "a"
+},{
+  "_id": {
+    "$oid": "62958ce92e5d77802dbab57e"
+  },
+  "title": "ND-28/PJ/2015",
+  "hal": "Tentang kecerdasan Individu",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "b"
+},{
+  "_id": {
+    "$oid": "62958cff2e5d77802dbab57f"
+  },
+  "title": "ND-30/PJ/2015",
+  "hal": "Tentang bruh moment",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "c"
+},{
+  "_id": {
+    "$oid": "62958d192e5d77802dbab580"
+  },
+  "title": "ND-28/PJ/2011",
+  "hal": "Saya Goblok",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "d"
+},{
+  "_id": {
+    "$oid": "62958d372e5d77802dbab581"
+  },
+  "title": "ND-15/PJ/2015",
+  "hal": "Tentang Kebodohan Individu",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "e"
+},{
+  "_id": {
+    "$oid": "62958dcc2e5d77802dbab582"
+  },
+  "title": "ND-25/PJ/2015",
+  "hal": "Tentang Kebodohan Individu",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "f"
+},{
+  "_id": {
+    "$oid": "6295bda19a4ff49c27022d6c"
+  },
+  "title": "ND-829/PJ.04/2022",
+  "hal": "Target dan Tata Cara Penghitungan IKU Tingkat Efektivitas Pemeriksaan dan Tingkat Efektivitas Usulan DSPP",
+  "tags": [
+    "anjing",
+    "babi",
+    "sayur"
+  ],
+  "fileName": "ND829PJ042022"
+},{
+  "_id": {
+    "$oid": "6295be259a4ff49c27022d6d"
+  },
+  "title": "ND-25/PJ/2015 (Lampiran)",
+  "hal": "Target dan Tata Cara Penghitungan IKU Efektifitas Pemeriksaan",
+  "tags": [
+    "konversi",
+    "IKU",
+    "Efektivitas Pemeriksaan",
+    "Target",
+    "Pencairan"
+  ],
+  "fileName": "ND829PJ042022_LAMP"
+},{
+  "_id": {
+    "$oid": "6295be999a4ff49c27022d6e"
+  },
+  "title": "PMK-17/PMK.03/2013",
+  "hal": "Tentang Tata Cara Pemeriksaan",
+  "tags": [
+    "Jangka Waktu Pemeriksaan",
+    "Jatuh Tempo",
+    "Pemeriksaan"
+  ],
+  "fileName": "PMK17_2013"
+},{
+  "_id": {
+    "$oid": "6295bf1d9a4ff49c27022d6f"
+  },
+  "title": "SE-15/PJ/2018",
+  "hal": "Tentang Kebijakan Pemeriksaan",
+  "tags": [
+    "Kebijakan Pemeriksaan",
+    "Tata Cara Pemeriksaan",
+    "Kode Pemeriksaan"
+  ],
+  "fileName": "SE15_2018"
+},{
+  "_id": {
+    "$oid": "6295bf6a9a4ff49c27022d70"
+  },
+  "title": "SE-15/PJ/2018 (Lampiran)",
+  "hal": "Tentang Kebijakan Pemeriksaan",
+  "tags": [
+    "Kebijakan Pemeriksaan",
+    "Tata Cara Pemeriksaan",
+    "Kode Pemeriksaan"
+  ],
+  "fileName": "SE15_2018_LAMP"
+},{
+  "_id": {
+    "$oid": "6295c1399a4ff49c27022d74"
+  },
+  "title": "SE-28/PJ/2017 ",
+  "hal": "Tentang Pedoman Penyusunan Laporan Hasil Pemeriksaan (LHP)",
+  "tags": [
+    "Kebijakan Pemeriksaan",
+    "Tata Cara Pemeriksaan",
+    "Kode Pemeriksaan",
+    "Penyusunan LHP",
+    "Pembuatan LHP",
+    "Susunan LHP"
+  ],
+  "fileName": "SE_28_PJ_2017"
+},{
+  "_id": {
+    "$oid": "6295c1c69a4ff49c27022d76"
+  },
+  "title": "SE-28/PJ/2017 (Lampiran) ",
+  "hal": "Tentang Pedoman Penyusunan Laporan Hasil Pemeriksaan (LHP)",
+  "tags": [
+    "Kebijakan Pemeriksaan",
+    "Tata Cara Pemeriksaan",
+    "Kode Pemeriksaan",
+    "Penyusunan LHP",
+    "Pembuatan LHP",
+    "Susunan LHP"
+  ],
+  "fileName": "SE28_PJ_2017_LAMP"
+},{
+  "_id": {
+    "$oid": "6295c2189a4ff49c27022d78"
+  },
+  "title": "SE-24/PJ/2019",
+  "hal": "Implementasi CRM dalam Kegiatan Ekstensifikasi, Pengawasan, dan P2",
+  "tags": [
+    "Implementasi CRM",
+    "Komite Kepatuhan",
+    "WP strategis",
+    "DSPP WP Strategis",
+    "Penyusunan DSPP"
+  ],
+  "fileName": "SE24_2020"
+},{
+  "_id": {
+    "$oid": "6295c2cc9a4ff49c27022d79"
+  },
+  "title": "SE-05/PJ/2022",
+  "hal": "Pengawasan Kepatuhan Wajib Pajak",
+  "tags": [
+    "SE-07",
+    "Pengawasan Kepatuhan",
+    "WP strategis",
+    "DSPP WP Strategis",
+    "Penyusunan DSPP"
+  ],
+  "fileName": "SE05_2022"
+},{
+  "_id": {
+    "$oid": "6295c35b9a4ff49c27022d7b"
+  },
+  "title": "SE-05/PJ/2022 (Lampiran)",
+  "hal": "Pengawasan Kepatuhan Wajib Pajak",
+  "tags": [
+    "SE-07",
+    "Pengawasan Kepatuhan",
+    "WP strategis",
+    "DSPP WP Strategis",
+    "Penyusunan DSPP"
+  ],
+  "fileName": "SE05_2022_LAMP"
+}]

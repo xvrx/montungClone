@@ -1,0 +1,88 @@
+.notif-modal-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.notif-modal-subcontainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.notif-modal-inner{
+    position: relative;
+    transform: translateY(60%);
+    width: 507px;
+    height: 266px;
+    background-color: #2a2e31;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.notif-modal-close{
+    padding-top: 3px;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.notif-modal-title{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.notif-content-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: flex-flex-start;
+    height: 83%;
+}
+.notif-modal-content{
+    width: 85%;
+    height: 75%;
+    margin: 0 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.notif-modal-close:active{
+    transform: translateY(0px);
+}
+
+.notif-modal-content::-webkit-scrollbar {
+    position: absolute;
+    width: 10px;
+    border-radius: 5px;
+  }
+  
+  .notif-modal-content::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 5px;
+  }
+   
+  .notif-modal-content::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+  }
+  
+  .notif-modal-content:hover::-webkit-scrollbar-thumb {
+    background: #494949; 
+  }
+
+  .notif-modal-button{
+    transform: translateX(17px);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 7px;
+  }
