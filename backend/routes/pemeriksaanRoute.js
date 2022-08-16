@@ -2,6 +2,7 @@ const route = require("express").Router();
 const Pemeriksaan = require("../models/PemeriksaanModel");
 const KodeModel = require("../models/NilaiKonversi");
 const verify = require("../auth/verify");
+const caster = require("../utils/caster");
 const dateUtils = require("../utils/Konversi");
 const konversi = require("../utils/Konversi");
 
@@ -129,20 +130,20 @@ route.patch(
       Tahapan: payload?.Tahapan,
       Kendala: payload?.Kendala,
       TanggalMulaiPemeriksaan: payload?.TanggalMulaiPemeriksaan,
-      NilaiKonversi: payload?.NilaiKonversi,
-      NilaiLBterbit: payload?.NilaiLBterbit,
-      NilaiPencairan: payload?.NilaiPencairan,
-      NilaiProyeksiLB: payload?.NilaiProyeksiLB,
-      NilaiProyeksiPencairan: payload?.NilaiProyeksiPencairan,
-      NilaiProyeksiSKP: payload?.NilaiProyeksiSKP,
-      NilaiSKPTerbit: payload?.NilaiSKPTerbit,
-      Disetujui: payload?.Disetujui,
+      NilaiKonversi: caster.numify(payload?.NilaiKonversi),
+      NilaiLBterbit: caster.numify(payload?.NilaiLBterbit),
+      NilaiPencairan: caster.numify(payload?.NilaiPencairan),
+      NilaiProyeksiLB: caster.numify(payload?.NilaiProyeksiLB),
+      NilaiProyeksiPencairan: caster.numify(payload?.NilaiProyeksiPencairan),
+      NilaiProyeksiSKP: caster.numify(payload?.NilaiProyeksiSKP),
+      NilaiSKPTerbit: caster.numify(payload?.NilaiSKPTerbit),
+      Disetujui: caster.numify(payload?.Disetujui),
       LHP: payload?.LHP,
       TanggalLHP: payload?.TanggalLHP,
       TanggalProyeksiLHP: payload?.TanggalProyeksiLHP,
       TanggalProyeksiPencairan: payload?.TanggalProyeksiPencairan,
       TanggalProyeksiSKP: payload?.TanggalProyeksiSKP,
-      PotensiDSPP: payload?.PotensiDSPP,
+      PotensiDSPP: caster.numify(payload?.PotensiDSPP),
     };
 
     if (id && payload) {
@@ -171,5 +172,42 @@ route.patch(
     }
   }
 );
+
+route.patch("/pencairan/:id", verify, async (req, res) => {
+  const id = req.params.id;
+  const payload = req.body;
+
+  const opt = {
+    NilaiPencairan: caster.numify(payload?.NilaiPencairan),
+    NilaiProyeksiPencairan: caster.numify(payload?.NilaiProyeksiPencairan),
+    NilaiSKPTerbit: caster.numify(payload?.NilaiSKPTerbit),
+    TanggalProyeksiPencairan: payload?.TanggalProyeksiPencairan,
+    tanggalPencairan: payload?.tanggalPencairan,
+    sisaPencairan: caster.numify(payload?.sisaPencairan),
+  };
+
+  // console.log("cast result :", caster.numify(""));
+
+  if (id && payload) {
+    try {
+      Pemeriksaan.findByIdAndUpdate(id, opt, { new: true }, (err, newRec) => {
+        if (err) {
+          res.status(500).json({ message: "server failed to update!" });
+        } else {
+          return res.status(200).json({
+            message: "data is successfully updated!",
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .json({ message: "failed to update data, server unreachable!" });
+    }
+  } else {
+    return res.status(400).json({ message: "req _id or body not found!" });
+  }
+});
 
 module.exports = route;

@@ -55,7 +55,7 @@ const TambahTahapan = () => {
 
     axios
       .patch(
-        serverOrigin + `pemeriksaan/montung/${optionLHP?._id}`,
+        serverOrigin + `pemeriksaan/pencairan/${optionLHP?._id}`,
         objUpdated[pencairanIdx],
         { withCredentials: true }
       )
@@ -182,6 +182,7 @@ const TambahTahapan = () => {
               </div>
               <div className="sisa-proyeksi">
                 <input
+                  disabled={optionLHP.sisaPencairan <= 0 ? true : false}
                   value={optionLHP?.TanggalProyeksiPencairan}
                   onChange={(e) =>
                     setoptionLHP({
