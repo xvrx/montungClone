@@ -1,181 +1,184 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const PemeriksaanSchema = mongoose.Schema({
+const PemeriksaanSchema = mongoose.Schema(
+  {
     NPWP: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     NamaWP: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     PeriodePajak: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     Kode: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     DeskripsiKode: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     Kriteria: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     PotensiDSPP: {
-        type: Number
+      type: Number,
     },
     Jenis: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     ProfileWP: {
-        type: String
+      type: String,
     },
     NomorUsulanPemeriksaan: {
-        type: String
+      type: String,
     },
     TanggalUsulan: {
-        type: String
+      type: String,
     },
     NomorInstruksiPemeriksaan: {
-        type: String
+      type: String,
     },
     TanggalInstruksi: {
-        type: String
+      type: String,
     },
     PenunjukanSupervisor: {
-        type: String
+      type: String,
     },
     TanggalPenunjukanSupervisor: {
-        type: String
+      type: String,
     },
     AuditPlan: {
-        type: String
+      type: String,
     },
     TanggalAuditPlan: {
-        type: String
+      type: String,
     },
     NamaSupervisor: {
-        type: String
+      type: String,
     },
     NamaKetuaTim: {
-        type: String
+      type: String,
     },
     NamaAnggotaTim1: {
-        type: String
+      type: String,
     },
     NamaAnggotaTim2: {
-        type: String
+      type: String,
     },
     PIC: {
-        type: String
+      type: String,
     },
     TanggalMulaiPemeriksaan: {
-        type: String
+      type: String,
     },
     NomorSP2: {
-        type: String
+      type: String,
     },
     TanggalSP2: {
-        type: String
+      type: String,
     },
     LHP: {
-        type: String
+      type: String,
     },
     TanggalLHP: {
-        type: String
+      type: String,
     },
     NilaiKonversi: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     NilaiSKPTerbit: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     TanggalProyeksiLHP: {
-        type: String
+      type: String,
     },
     TanggalProyeksiSKP: {
-        type: String
+      type: String,
     },
     NilaiProyeksiSKP: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     TanggalProyeksiPencairan: {
-        type: String
+      type: String,
     },
     NilaiPencairan: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     Disetujui: {
-        type: Number
+      type: Number,
     },
     Tahapan: {
-        type: Array,
-        default: {
-            deskripsiTahapan: "Menyampaikan Tanggal Mulai Pemeriksaan",
-            namaTahapan: "Mulai Pemeriksaan",
-            tanggal: ""
-        }
+      type: Array,
+      default: {
+        deskripsiTahapan: "Menyampaikan Tanggal Mulai Pemeriksaan",
+        namaTahapan: "Mulai Pemeriksaan",
+        tanggal: "",
+      },
     },
     TanggalTahapan: {
-        type: String
+      type: String,
     },
     Kendala: {
-        type: String
+      type: String,
     },
     reviewAtasan: {
-        type: String
+      type: String,
     },
     alamatWP: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     KLU: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     AR: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     NilaiLBterbit: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     NilaiProyeksiLB: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     NilaiProyeksiPencairan: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     NilaiPencairan: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     NilaiSKPTerbit: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     TanggalProyeksiPencairan: {
-        type: String
+      type: String,
     },
     sisaPencairan: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     tanggalPencairan: {
-        type: String
-    }
-}, { collection: 'PemeriksaanModel' })
+      type: String,
+    },
+  },
+  { collection: "PemeriksaanModel" }
+);
 
-module.exports = mongoose.model('PemeriksaanModel', PemeriksaanSchema)
+module.exports = mongoose.model("PemeriksaanModel", PemeriksaanSchema);

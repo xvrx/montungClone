@@ -24,8 +24,8 @@ const App = loadable(() => import("./App"), {
 // }
 
 const Wtfamidoin = () => {
-  // const server0 = "http://localhost:2000/";
-  const server0 = "http://192.168.1.2:2000/";
+  const server0 = "http://localhost:2000/";
+  // const server0 = "http://192.168.1.8:2000/";
 
   const [loading, setloading] = useState(null);
   useEffect(() => {

@@ -1,9 +1,9 @@
 const route = require("express").Router();
 const Pemeriksaan = require("../models/PemeriksaanModel");
 const KodeModel = require("../models/NilaiKonversi");
+
 const verify = require("../auth/verify");
 const caster = require("../utils/caster");
-const dateUtils = require("../utils/Konversi");
 const konversi = require("../utils/Konversi");
 
 // api/pemeriksaan
@@ -17,8 +17,8 @@ route.get("/", async (req, res) => {
         message: `Welcome ${req.session.nama}`,
         description: "data successfully fetched from the server!",
       });
-      // console.log('/pemeriksaan visited!')
     } catch (error) {
+      console.log("admin retrieval error :", error)
       res.status(500).json({
         data: [],
         message: "Something went wrong!",
@@ -27,7 +27,7 @@ route.get("/", async (req, res) => {
       // console.log('/pemeriksaan visited!')
     }
   } else if (req.session.role === "fppspv") {
-    console.log("spv requested data,", req.session.nama);
+    // console.log("spv requested data,", req.session.nama);
     const user = String(req.session.nama);
     try {
       const spvData = await Pemeriksaan.find({ NamaSupervisor: user });
@@ -47,7 +47,7 @@ route.get("/", async (req, res) => {
     // console.log('failed to identify user')
     // res.status(404).send('bad Requests')
   } else if (req.session.role === "fpp") {
-    console.log("fpp requested data,", req.session.nama);
+    // console.log("fpp requested data,", req.session.nama);
     const user = String(req.session.nama);
     try {
       const fppData = await Pemeriksaan.find({ PIC: user }).exec();

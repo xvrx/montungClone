@@ -11,8 +11,8 @@ export const MontungProvider = (props) => {
   });
 
   // const serverOrigin = 'http://10.13.1.63:2000/api/'
-  const serverOrigin = "http://192.168.1.2:2000/api/";
-  // const serverOrigin = "http://localhost:2000/api/";
+  // const serverOrigin = "http://192.168.1.8:2000/api/";
+  const serverOrigin = "http://localhost:2000/api/";
 
   const [loadingStatus, setLoading] = useState(false);
 
@@ -139,17 +139,29 @@ export const MontungProvider = (props) => {
   useEffect(() => {
     setusulanFiltered(
       montung.filter((elem) => {
-        return elem.NomorSP2 === "" && elem.LHP === "";
+        return (elem?.NomorSP2 === undefined ||
+        elem?.NomorSP2.length < 1 ) &&
+        (elem?.LHP === undefined || elem?.LHP?.length < 1);
       })
     );
     settunggakanFiltered(
       montung.filter((elem) => {
-        return elem.NomorSP2 !== "" && elem.LHP === "";
+        return (
+          elem?.hasOwnProperty("NomorSP2") &&
+          elem?.NomorSP2?.length > 0 &&
+          elem?.NomorSP2?.length !== undefined &&
+          (elem?.LHP === undefined ||
+            elem?.LHP.length < 1)
+        );
       })
     );
     setselesaiFiltered(
       montung.filter((elem) => {
-        return elem.NomorSP2 !== "" && elem.LHP !== "";
+        return (
+          elem?.hasOwnProperty("LHP") &&
+          elem?.NomorSP2?.length > 0 &&
+          elem?.LHP?.length > 0
+        );
       })
     );
   }, [montung]);

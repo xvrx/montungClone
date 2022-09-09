@@ -1,118 +1,92 @@
+const mongoose = require("mongoose");
 
-const mongoose = require('mongoose')
-
-const masterSchema = mongoose.Schema({
+const masterSchema = mongoose.Schema(
+  {
     NPWP: {
-        type: String,
-        maxLength: 20
+      type: String,
+      maxLength: 20,
     },
     STATUS: {
-        type: String,
-
+      type: String,
     },
     TANGGAL_DAFTAR: {
-        type: String,
-
+      type: String,
     },
     TANGGAL_LAHIR: {
-        type: String,
-
+      type: String,
     },
     NAMA_WP: {
-        type: String,
-
+      type: String,
     },
     ALAMAT: {
-        type: String,
-
+      type: String,
     },
     KOTA: {
-        type: String,
-
+      type: String,
     },
     KODE_POS: {
-        type: String,
-
+      type: String,
     },
     NOMOR_TELEPON: {
-        type: String,
-
+      type: String,
     },
     NOMOR_FAX: {
-        type: String,
-
+      type: String,
     },
     EMAIL: {
-        type: String,
-
+      type: String,
     },
     NOMOR_IDENTITAS: {
-        type: String,
-
+      type: String,
     },
     STATUS_WP: {
-        type: String,
-
+      type: String,
     },
     JENIS_WP: {
-        type: String,
-
+      type: String,
     },
     KODE_KLU: {
-        type: String,
-
+      type: String,
     },
     NAMA_KLU: {
-        type: String,
-
+      type: String,
     },
     TANGGAL_PKP: {
-        type: String,
-
+      type: String,
     },
     KELURAHAN: {
-        type: String,
-
+      type: String,
     },
     KECAMATAN: {
-        type: String,
-
+      type: String,
     },
     PROPINSI: {
-        type: String,
-
+      type: String,
     },
     NO_SKT: {
-        type: String,
-
+      type: String,
     },
     NO_PKP: {
-        type: String,
-
+      type: String,
     },
     NO_PKP_CABUT: {
-        type: String,
-
+      type: String,
     },
     TGL_PKP_CABUT: {
-        type: String,
-
+      type: String,
     },
     NIP_AR: {
-        type: String,
-
+      type: String,
     },
     NAMA_AR: {
-        type: String,
-
+      type: String,
     },
     KATEGORI: {
-        type: String,
-
+      type: String,
     },
-}, { collection: 'masterfile' })
+  },
+  { collection: "masterfile" }
+);
 
 // module.exports = mongoose.model('masterfile', masterSchema)
-module.exports = masterSchema
-
-
+module.exports = masterSchema;

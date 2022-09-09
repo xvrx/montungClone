@@ -16,6 +16,14 @@ const TambahTahapan = () => {
   } = useContext(ModalContext);
 
   const {
+    setNotifStatus,
+    setnotifModal,
+    setnotifModalTitle,
+    setnotifModalMessage,
+    setnotifModalButton,
+  } = useContext(ModalContext);
+
+  const {
     tahapanContainer,
     settahapanContainer,
     tunggakanContainer,
@@ -27,28 +35,45 @@ const TambahTahapan = () => {
   const { montung, setMontung } = useContext(MontungContext);
 
   function updateTahapan() {
-    if (editTahapan === false) {
-      setTunggakanContainer({
-        ...tunggakanContainer,
-        Tahapan: [tahapanContainer, ...tunggakanContainer.Tahapan],
-      });
-      settahapanContainer({
-        tanggal: "",
-        namaTahapan: "",
-        deskripsiTahapan: "",
-      });
-      settahapanModal(false);
+    if (
+      tahapanContainer.tanggal === "" ||
+      tahapanContainer.namaTahapan === "" ||
+      tahapanContainer.deskripsiTahapan === ""
+    ) {
+      setnotifModalTitle("Tahapan tidak lengkap!");
+      setnotifModalMessage(
+        "Mohon pilih tanggal dan isi nama & deskripsi Tahapan kegiatan."
+      );
+      setNotifStatus("submit-usulan");
+      setnotifModalButton(false);
+      setnotifModal(true);
     } else {
-      const tahapanUpdated = [...tunggakanContainer.Tahapan];
-      tahapanUpdated[tahapanIdx] = tahapanContainer;
-      setTunggakanContainer({ ...tunggakanContainer, Tahapan: tahapanUpdated });
-      seteditTahapan(false);
-      settahapanModal(false);
-      settahapanContainer({
-        tanggal: "",
-        namaTahapan: "",
-        deskripsiTahapan: "",
-      });
+      if (editTahapan === false) {
+        setTunggakanContainer({
+          ...tunggakanContainer,
+          Tahapan: [tahapanContainer, ...tunggakanContainer.Tahapan],
+        });
+        settahapanContainer({
+          tanggal: "",
+          namaTahapan: "",
+          deskripsiTahapan: "",
+        });
+        settahapanModal(false);
+      } else {
+        const tahapanUpdated = [...tunggakanContainer.Tahapan];
+        tahapanUpdated[tahapanIdx] = tahapanContainer;
+        setTunggakanContainer({
+          ...tunggakanContainer,
+          Tahapan: tahapanUpdated,
+        });
+        seteditTahapan(false);
+        settahapanModal(false);
+        settahapanContainer({
+          tanggal: "",
+          namaTahapan: "",
+          deskripsiTahapan: "",
+        });
+      }
     }
   }
 

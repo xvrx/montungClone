@@ -16,6 +16,10 @@
 /montungSrc/
 /data
 /data/
+/collection
+/collection/
+
+
 
 # misc
 .DS_Store

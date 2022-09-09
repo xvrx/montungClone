@@ -12,9 +12,9 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Login() {
-  // const server0 = "http://localhost:2000/";
+  const server0 = "http://localhost:2000/";
   // const server0 = "http://10.13.1.63:2000/";
-  const server0 = "http://192.168.1.2:2000/";
+  // const server0 = "http://192.168.1.8:2000/";
 
   const navigate = useNavigate();
   const [loginLoader, setloginLoader] = useState(false);
@@ -217,6 +217,7 @@ function Login() {
           }
         })
         .catch((err) => {
+          console.log(err.response)
           setErrormsg(
             err.response?.data?.desc || "something is wrong in the server"
           );

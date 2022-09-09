@@ -1,4 +1,8 @@
-
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .app-container{
   position:relative;

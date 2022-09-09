@@ -13,7 +13,10 @@ const FragmentSelesai = () => {
   const { selesaiFiltered, serverOrigin, loading, thousandSeparator, sum, sumFloat, defaultDate } =
     useContext(MontungContext);
   const { optionLHP, setoptionLHP } = useContext(TambahContext);
-  const { modalLHP, setModalLHP } = useContext(ModalContext);
+  const { modalLHP, setModalLHP,setnotifModal,
+    setnotifModalTitle,
+    setnotifModalMessage,
+    setnotifModalButton, } = useContext(ModalContext);
 
   function addSearchFilter(e) {
     console.log(e.target.value);
@@ -86,9 +89,15 @@ const FragmentSelesai = () => {
         const error = await (err?.response?.data)?.text()
         if (error) {
           const message = await error
-          console.log(message)
+          // console.log(message)
           if (JSON.parse(message).login === false) return window.location.reload()
           loading(false)
+          if (JSON.parse(message).message === "No records found!") {
+            setnotifModalTitle('file tidak ditemukan!')
+            setnotifModalMessage(`tidak terdapat data tunggakan pemeriksaan pada database.`)
+            setnotifModalButton(false)
+            setnotifModal(true)
+          }
         }
         console.log(err.response)
         loading(false)

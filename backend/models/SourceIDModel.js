@@ -10,13 +10,14 @@ const sourceSchema = mongoose.Schema({
         required: true
     },
     current: {
-        type: String,
+        type: Date,
+        default: new Date(), 
         required: true
     },
     year: {
         type: Number,
         required: true
     },
-})
+}, { collection: 'SourceModel' })
 
-module.exports = mongoose.model('Source Model', sourceSchema)
+module.exports = mongoose.model('SourceModel', sourceSchema)

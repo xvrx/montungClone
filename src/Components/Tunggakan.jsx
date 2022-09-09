@@ -17,7 +17,6 @@ const Tunggakan = () => {
   const {
     montung,
     tunggakanFiltered,
-    usulanFiltered,
     thousandSeparator,
     dateRange,
     formatDate,
@@ -25,7 +24,12 @@ const Tunggakan = () => {
     loading
   } = useContext(MontungContext);
   const { nav, previousNav } = useContext(NavContext);
-  const { setTunggakanModal } = useContext(ModalContext);
+  const { 
+    setTunggakanModal,
+    setnotifModal,
+    setnotifModalTitle,
+    setnotifModalMessage,
+    setnotifModalButton, } = useContext(ModalContext);
   const { tunggakanContainer, setTunggakanContainer } =
     useContext(TambahContext);
 
@@ -84,15 +88,21 @@ const Tunggakan = () => {
         document.body.removeChild(link)
         loading(false)
       }).catch(async (err) => {
-        console.log(err.response.data)
+        // console.log("failed to download file :",err.response)
         const error = await (err?.response?.data)?.text()
         if (error) {
           const message = await error
-          console.log(message)
+          // console.log(JSON.parse(message).message)
           if (JSON.parse(message).login === false) return window.location.reload()
           loading(false)
+          if (JSON.parse(message).message === "No records found!") {
+            setnotifModalTitle('file tidak ditemukan!')
+            setnotifModalMessage(`tidak terdapat data tunggakan pemeriksaan pada database.`)
+            setnotifModalButton(false)
+            setnotifModal(true)
+          }
+          
         }
-        console.log(err.response)
         loading(false)
       })
   }

@@ -49,7 +49,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://10.13.1.63:3000",
-      "http://192.168.1.2:3000",
+      "http://192.168.1.8:3000",
     ],
     // origin: "http://10.13.1.63:3000",
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE", "PATCH"],

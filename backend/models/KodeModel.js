@@ -1,24 +1,27 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const KodeSchema = mongoose.Schema({
+const KodeSchema = mongoose.Schema(
+  {
     nomorKode: {
-        type: String
+      type: String,
     },
     jenisWP: {
-        type: String
+      type: String,
     },
     kriteria: {
-        type: String
+      type: String,
     },
     PenerbitNP2: {
-        type: String
+      type: String,
     },
     ruangLingkup: {
-        type: String
+      type: String,
     },
     deskripsiKode: {
-        type: String
-    }
-}, { collection: 'Kode' })
+      type: String,
+    },
+  },
+  { collection: "Kode" }
+);
 
-module.exports = mongoose.model('Kode', KodeSchema)
+module.exports = mongoose.model("Kode", KodeSchema);
