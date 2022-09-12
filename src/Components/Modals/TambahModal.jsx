@@ -168,7 +168,7 @@ const TambahModal = () => {
                     settambahModal(false);
                 }).catch((err) => {
                     const logStatus = err?.response?.data?.login
-                    if (!logStatus) {
+                    if (logStatus === false) {
                         return window.location.reload()
                     }
                     console.log(err.response)

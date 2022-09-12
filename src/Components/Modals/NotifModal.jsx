@@ -34,8 +34,10 @@ const NotifModal = () => {
             }).catch((err) => {
                 console.log(err.response)
                 setnotifModal(false)
+                if (err.response.data.login === false) {
+                    setTimeout(() => { window.location.reload() }, 1000);
+                }
             })
-
         loading(false)
     }
 
@@ -56,6 +58,9 @@ const NotifModal = () => {
                     setnotifModalMessage('')
                 } else { }
             }).catch((err) => {
+                if (err.response.data.login === false) {
+                    setTimeout(() => { window.location.reload() }, 1000);
+                }
                 console.log(err.response)
                 setnotifModal(false)
                 setnotifModalButton(false)
@@ -83,6 +88,9 @@ const NotifModal = () => {
                 setMontung(montungUpdated)
             }).catch((err) => {
                 console.log(err.response)
+                if (err.response.data.login === false) {
+                    setTimeout(() => { window.location.reload() }, 1000);
+                }
             })
         setTambahContainer(emptyContainer);
         settambahModal(false);

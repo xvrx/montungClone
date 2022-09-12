@@ -127,42 +127,45 @@ route.patch(
     const intendedRecord = await Pemeriksaan.findById(id)
     const nomerSP2 = intendedRecord?.NomorSP2
 
-    if (id && payload.NPWP 
-      && payload.NamaWP 
-      && payload.PeriodePajak
-      && payload.Kode
-      && payload.NomorUsulanPemeriksaan
-      && payload.TanggalUsulan
-      && payload.alamatWP
-      && payload.NomorSP2
-      && payload.TanggalSP2
+  
+
+    if (id && payload?.NPWP.length > 0
+      && payload?.NamaWP.length > 0
+      && payload?.PeriodePajak.length > 0
+      && payload?.Kode.length > 0
+      && payload?.NomorUsulanPemeriksaan.length > 0
+      && payload?.TanggalUsulan.length > 0
+      && payload?.alamatWP.length > 0
+      && payload?.NomorSP2 !== null
+      && nomerSP2?.length === 0
+      && payload?.TanggalSP2 !== null
       ) {
-
+        
         console.log("updating usulan ...")
-
+        
         const usulanUpdate = {
-          NamaWP : payload.NamaWP,
-          PeriodePajak : payload.PeriodePajak,
-          Kode : payload.Kode,
-          NomorUsulanPemeriksaan : payload.NomorUsulanPemeriksaan,
-          TanggalUsulan : payload.TanggalUsulan,
-          alamatWP : payload.alamatWP,
-          NomorSP2 : payload.NomorSP2,
-          TanggalSP2 : payload.TanggalSP2,
-          NomorInstruksiPemeriksaan : payload.NomorInstruksiPemeriksaan,
-          TanggalInstruksi : payload.TanggalInstruksi,
-          AuditPlan : payload.AuditPlan,
-          TanggalAuditPlan : payload.TanggalAuditPlan,
-          Kriteria : payload.Kriteria,
-          DeskripsiKode : payload.DeskripsiKode,
-          Jenis : payload.Jenis,
-          AR : payload.AR,
-          KLU : payload.KLU,
-          NPWP : payload.NPWP,
-          NamaSupervisor : payload.NamaSupervisor,
-          NamaKetuaTim : payload.NamaKetuaTim,
-          PenunjukanSupervisor : payload.PenunjukanSupervisor,
-          TanggalPenunjukanSupervisor : payload.TanggalPenunjukanSupervisor,
+          NamaWP : payload?.NamaWP,
+          PeriodePajak : payload?.PeriodePajak,
+          Kode : payload?.Kode,
+          NomorUsulanPemeriksaan : payload?.NomorUsulanPemeriksaan,
+          TanggalUsulan : payload?.TanggalUsulan,
+          alamatWP : payload?.alamatWP,
+          NomorSP2 : payload?.NomorSP2,
+          TanggalSP2 : payload?.TanggalSP2,
+          NomorInstruksiPemeriksaan : payload?.NomorInstruksiPemeriksaan,
+          TanggalInstruksi : payload?.TanggalInstruksi,
+          AuditPlan : payload?.AuditPlan,
+          TanggalAuditPlan : payload?.TanggalAuditPlan,
+          Kriteria : payload?.Kriteria,
+          DeskripsiKode : payload?.DeskripsiKode,
+          Jenis : payload?.Jenis,
+          AR : payload?.AR,
+          KLU : payload?.KLU,
+          NPWP : payload?.NPWP,
+          NamaSupervisor : payload?.NamaSupervisor,
+          NamaKetuaTim : payload?.NamaKetuaTim,
+          PenunjukanSupervisor : payload?.PenunjukanSupervisor,
+          TanggalPenunjukanSupervisor : payload?.TanggalPenunjukanSupervisor,
         };
 // =======================
           console.log("updating usulan ...")
@@ -196,7 +199,8 @@ route.patch(
       && payload.alamatWP
       && nomerSP2?.length > 0
       ) {
-    const newVer = {
+
+      const newVer = {
       PIC: payload?.PIC,
       ProfileWP: payload?.ProfileWP,
       Tahapan: payload?.Tahapan,

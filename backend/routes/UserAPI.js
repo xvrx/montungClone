@@ -29,17 +29,22 @@ route.get("/verify", async (req, res) => {
       const user = req?.session?.user;
       const bruh = await UserIDModel.findOne({ nip: user }).exec();
       const sourceRef = await SourceID.findOne({}).exec();
+      // console.log("source found: ", sourceRef)
       const a = sourceRef
-      a.current = new Date()
-
-      const picUrl = 'http://'+host+bruh?.pics
-      bruh.pics = picUrl
-
-      res.status(200).json({
-        stat: true, 
-        data: bruh,
-        source: a
-      });
+      if (a) {
+        const a = sourceRef
+        a.current = new Date()
+        const picUrl = 'http://'+host+bruh?.pics
+        bruh.pics = picUrl
+  
+        res.status(200).json({
+          stat: true, 
+          data: bruh,
+          source: a
+        });
+      } else {
+        res.status(502).json({message:"Database error upon setting up time, target, year etc references..."})
+      }
     } catch (error) {
       console.log(error);
       res

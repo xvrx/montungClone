@@ -41,8 +41,12 @@ const Wtfamidoin = () => {
       })
       .catch((err) => {
         console.log("axios error :", err.response);
-        if (err?.response?.data?.stat === false) {
+        if (
+          err?.response?.data?.stat === false          
+          ) {
           setloading(false);
+        } else if (err?.response?.status === 502) {
+          
         }
       });
   }, []);
@@ -55,8 +59,6 @@ const Wtfamidoin = () => {
     // return <Loader />;
     return <App />;
   }
-  // if (initiateLogin() === true) return () => <App />;
-  // if (initiateLogin() !== true) return <Navigate to={"/"} />;
 };
 
 export default Wtfamidoin;
