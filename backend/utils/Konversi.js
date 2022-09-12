@@ -50,7 +50,6 @@ async function countKonversi(req, res, next) {
       req.body.NilaiKonversi = konversi[ketepatan];
     }
   }
-
   next();
 }
 

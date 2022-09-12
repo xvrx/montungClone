@@ -74,7 +74,8 @@ const TargetGraph = () => {
       sum(SKPTerbit, "sisaPencairan"),
       sum(proyeksiSP2, "NilaiProyeksiPencairan")
     );
-    return total}
+    return total
+  }
 
   function proyeksiPrev(targetMonth) {
     let prevMonths = [];

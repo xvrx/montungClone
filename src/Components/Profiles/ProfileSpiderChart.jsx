@@ -3,10 +3,26 @@ import { Radar } from 'react-chartjs-3'
 import { MontungContext } from '../../Context/MontungContext';
 
 const ProfileSpiderChart = () => {
+
+  const {
+    selesaiFiltered,
+    shortenValue,
+    rupiah,
+    sum,
+    getMonth,
+    defaultDate,
+    tunggakanFiltered,
+    getYear,
+    sourceID,
+    plus,
+  } = useContext(MontungContext);
   // realisasi lhp => target konversi
   // lhp tepat waktu => lhp selesai
   // skp cair => skp terbit
   // skp disetujui => skp terbit
+
+  const labelRealisasi = ['Capaian Konversi', 'LHP Tepat Waktu', 'SKP Cair', 'SKP Disetujui']
+  const labelTarget = ['Target Konversi', 'LHP Selesai', 'SKP Terbit', 'SKP Terbit']
   const data = {
     labels: ['Konversi LHP', 'LHP Tepat Waktu', 'Pencairan SKP', 'SKP Disetujui'],
     datasets: [
@@ -54,22 +70,38 @@ const ProfileSpiderChart = () => {
       pointLabels: {
         fontColor: "rgba(255, 255, 255, .6)"
       }
-      
-    }
+    },
+    
+    legend: {
+      labels: {
+        fontColor: "#A5A7AB",
+        fontSize: 12,
+        boxWidth: 10,
+      },
+
+      display: true,
+      position: "top",
+      // position: 'bottom',
+    },
+
+    tooltips: {
+      callbacks: {
+        title: function (tooltipItem, data) {
+          const label = data["labels"][tooltipItem[0]["index"]];
+          console.log(tooltipItem)
+          return label;
+        },
+        label: function (tooltipItem, data) {
+          //   return item, shortenValue(parseInt(data));
+          //   let label = data.labels[tooltipItem.index];
+          let value =
+            data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+          return value;
+        },
+      }}
   };
 
-  const {
-    selesaiFiltered,
-    shortenValue,
-    rupiah,
-    sum,
-    getMonth,
-    defaultDate,
-    tunggakanFiltered,
-    getYear,
-    sourceID,
-    plus,
-  } = useContext(MontungContext);
+ 
 
 
   

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { BiLogInCircle } from "react-icons/bi";
@@ -22,8 +22,11 @@ function Login() {
   const [startFrom, setStartFrom] = useState(0);
   const [newsLimit, setnewsLimit] = useState(0);
 
+  
+  
+
   useEffect(() => {
-    setloginLoader(true);
+    setloginLoader(true); 
     axios
       .get(server0 + "api/user/verify", { withCredentials: true })
       .then((res) => {
@@ -58,25 +61,18 @@ function Login() {
             console.log("ini server", server0 + "/bruh0");
           });
       });
+      setTimeout(() => {
+        setuser({ ...user, user: " " })
+        setuser({ ...user, user: "" })
+        setuser({ ...user, key: " " })
+        setuser({ ...user, key: "" })
+      }, 100);
+      
     return () => {
       setloginLoader(false);
     };
   }, []);
 
-  // async function initiateLogin() {
-  //   try {
-  //     const result = await axios.get("http://localhost:2000/api/user/verify", {
-  //       withCredentials: true,
-  //     });
-  //     const stat = result?.data?.stat;
-  //     console.log(stat);
-  //     return stat;
-  //   } catch (error) {
-  //     const final = error?.response?.data?.stat || false;
-  //     console.log(final);
-  //     return final;
-  //   }
-  // }
 
   //! Get data
   function bruh() {
@@ -251,6 +247,7 @@ function Login() {
   //     console.log(keyPressed)
   //   }
   // });
+  
 
   return (
     <div className="login-outer-container">
@@ -315,6 +312,7 @@ function Login() {
               <div className="login-input-username-container">
                 <div className="modal-username-input-container">
                   <input
+                    autoComplete="false" 
                     onKeyPress={(e) => {
                       if (e.key === "Enter" && !loginLoader) {
                         gas();
@@ -323,7 +321,6 @@ function Login() {
                     value={user.user}
                     onChange={(e) => setuser({ ...user, user: e.target.value })}
                     maxLength={15}
-                    autoComplete="off"
                     spellCheck="false"
                     className="modal-username-input"
                     type="text"
@@ -345,7 +342,8 @@ function Login() {
                 </div>
                 <div className="modal-key-input-container">
                   <input
-                    autoComplete="off"
+                    autoComplete="false"
+                    // autoComplete="off"
                     onKeyPress={(e) => {
                       if (e.key === "Enter" && !loginLoader) {
                         gas();

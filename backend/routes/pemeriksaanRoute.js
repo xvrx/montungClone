@@ -85,7 +85,7 @@ route.get("/kode/:nomorKode", verify, async (req, res) => {
 route.post("/montung", verify, async (req, res) => {
   const newData = req.body;
   // console.log(newData)
-  if (newData !== null) {
+  if (newData !== null) {  
     const newUsulan = new Pemeriksaan(newData);
     await newUsulan.save();
     res.status(200).json({ message: "new usulan saved!", data: newUsulan });
@@ -123,7 +123,79 @@ route.patch(
   async (req, res) => {
     const id = req.params.id;
     const payload = req.body;
+    
+    const intendedRecord = await Pemeriksaan.findById(id)
+    const nomerSP2 = intendedRecord?.NomorSP2
 
+    if (id && payload.NPWP 
+      && payload.NamaWP 
+      && payload.PeriodePajak
+      && payload.Kode
+      && payload.NomorUsulanPemeriksaan
+      && payload.TanggalUsulan
+      && payload.alamatWP
+      && payload.NomorSP2
+      && payload.TanggalSP2
+      ) {
+
+        console.log("updating usulan ...")
+
+        const usulanUpdate = {
+          NamaWP : payload.NamaWP,
+          PeriodePajak : payload.PeriodePajak,
+          Kode : payload.Kode,
+          NomorUsulanPemeriksaan : payload.NomorUsulanPemeriksaan,
+          TanggalUsulan : payload.TanggalUsulan,
+          alamatWP : payload.alamatWP,
+          NomorSP2 : payload.NomorSP2,
+          TanggalSP2 : payload.TanggalSP2,
+          NomorInstruksiPemeriksaan : payload.NomorInstruksiPemeriksaan,
+          TanggalInstruksi : payload.TanggalInstruksi,
+          AuditPlan : payload.AuditPlan,
+          TanggalAuditPlan : payload.TanggalAuditPlan,
+          Kriteria : payload.Kriteria,
+          DeskripsiKode : payload.DeskripsiKode,
+          Jenis : payload.Jenis,
+          AR : payload.AR,
+          KLU : payload.KLU,
+          NPWP : payload.NPWP,
+          NamaSupervisor : payload.NamaSupervisor,
+          NamaKetuaTim : payload.NamaKetuaTim,
+          PenunjukanSupervisor : payload.PenunjukanSupervisor,
+          TanggalPenunjukanSupervisor : payload.TanggalPenunjukanSupervisor,
+        };
+// =======================
+          console.log("updating usulan ...")
+    
+          try {
+            Pemeriksaan.findByIdAndUpdate(
+              id,
+              usulanUpdate,
+              { new: true },
+              (err, newRec) => {
+                if (err) {
+                  res.status(500).json({ message: "server failed to update!" });
+                } else {
+                  return res.status(200).json({
+                    message: "data is successfully updated!"
+                  });
+                }
+              }
+            );
+          } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: "failed to update data in DB!" });
+          }
+//  =========================
+      } else if (id && payload.NPWP 
+      && payload.NamaWP 
+      && payload.PeriodePajak
+      && payload.Kode
+      && payload.NomorUsulanPemeriksaan
+      && payload.TanggalUsulan
+      && payload.alamatWP
+      && nomerSP2?.length > 0
+      ) {
     const newVer = {
       PIC: payload?.PIC,
       ProfileWP: payload?.ProfileWP,
@@ -147,6 +219,8 @@ route.patch(
     };
 
     if (id && payload) {
+      console.log("updating tunggakan ...")
+
       try {
         Pemeriksaan.findByIdAndUpdate(
           id,
@@ -169,6 +243,8 @@ route.patch(
       }
     } else {
       return res.status(400).json({ message: "req _id or body not found!" });
+    }} else {
+      res.status(404).json({ message: "data submitted is not adequate!" });
     }
   }
 );

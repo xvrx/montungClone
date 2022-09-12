@@ -157,7 +157,6 @@ const TambahModal = () => {
             tambahContainer.alamatWP.length > 0
         ) {
             loading(true)
-
             axios.patch(serverOrigin + `pemeriksaan/montung/${tambahContainer._id}`, tambahContainer, { withCredentials: true })
                 .then((res) => {
                     console.log(res)
@@ -168,6 +167,10 @@ const TambahModal = () => {
                     setTambahContainer(emptyContainer);
                     settambahModal(false);
                 }).catch((err) => {
+                    const logStatus = err?.response?.data?.login
+                    if (!logStatus) {
+                        return window.location.reload()
+                    }
                     console.log(err.response)
                 })
 
