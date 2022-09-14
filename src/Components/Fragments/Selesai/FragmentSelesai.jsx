@@ -94,7 +94,7 @@ const FragmentSelesai = () => {
           loading(false)
           if (JSON.parse(message).message === "No records found!") {
             setnotifModalTitle('file tidak ditemukan!')
-            setnotifModalMessage(`tidak terdapat data tunggakan pemeriksaan pada database.`)
+            setnotifModalMessage(`tidak terdapat data LHP pemeriksaan pada database.`)
             setnotifModalButton(false)
             setnotifModal(true)
           }

@@ -167,6 +167,9 @@ const TunggakanModal = () => {
           setTunggakanContainer(emptyContainer);
         })
         .catch((err) => {
+          if (err?.response?.data?.login === false) {
+            window.location.reload()
+          }
           console.log(err.response);
         });
 
@@ -1245,6 +1248,7 @@ const TunggakanModal = () => {
                     id="tambah-tanggal-instruksi"
                   >
                     <input
+                      disabled={tunggakanContainer.LHP.length < 1 ? true : false} 
                       value={tunggakanContainer.TanggalLHP}
                       onChange={(e) =>
                         setTunggakanContainer({

@@ -100,16 +100,43 @@ const NotifModal = () => {
     }
 
     function tunggakanLHPupdate() {
+        loading(true)
+
         let tunggakanIdx = montung.findIndex(i => i._id === tunggakanContainer._id)
-        const montungUpdated = [...montung]
-        montungUpdated[tunggakanIdx] = tunggakanContainer
-        setMontung(montungUpdated)
-        setTunggakanContainer(emptyContainer);
-        setnotifModal(false)
-        setTunggakanModal(false);
-        setnotifModalButton(false)
-        setnotifModalTitle('')
-        setnotifModalMessage('')
+
+        axios
+        .patch(
+          serverOrigin + `pemeriksaan/montung/${tunggakanContainer._id}`,
+          tunggakanContainer,
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.log(res);
+          montungUpdated[tunggakanIdx].NilaiKonversi = res?.data?.nilai;
+          setMontung(montungUpdated);
+
+          const montungUpdated = [...montung]
+          montungUpdated[tunggakanIdx] = tunggakanContainer
+          setMontung(montungUpdated)
+          setTunggakanContainer(emptyContainer);
+          setnotifModal(false)
+          setTunggakanModal(false);
+          setnotifModalButton(false)
+          setnotifModalTitle('')
+          setnotifModalMessage('')
+          
+
+          setTunggakanModal(false);
+          setTunggakanContainer(emptyContainer);
+        })
+        .catch((err) => {
+          if (err?.response?.data?.login === false) {
+            window.location.reload()
+          }
+          console.log(err.response);
+        });
+
+        loading(false)
     }
 
     function tahapanDeleteConfirm() {

@@ -68,7 +68,7 @@ const FragmentUsulan = () => {
         if (JSON.parse(message).login === false) return window.location.reload()
         if (JSON.parse(message).message === "No records found!") {
           setnotifModalTitle('file tidak ditemukan!')
-          setnotifModalMessage(`tidak terdapat data tunggakan pemeriksaan pada database.`)
+          setnotifModalMessage(`tidak terdapat data usulan pemeriksaan pada database.`)
           setnotifModalButton(false)
           setnotifModal(true)
         }
