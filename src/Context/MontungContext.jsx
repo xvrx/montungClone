@@ -141,7 +141,8 @@ export const MontungProvider = (props) => {
     setusulanFiltered(
       montung.filter((elem) => {
         return (elem?.NomorSP2 === undefined ||
-        elem?.NomorSP2.length < 1 ) &&
+        elem?.NomorSP2.length < 1 || 
+        elem?.TanggalSP2.length < 1)  &&
         (elem?.LHP === undefined || elem?.LHP?.length < 1);
       })
     );
@@ -150,6 +151,7 @@ export const MontungProvider = (props) => {
         return (
           elem?.hasOwnProperty("NomorSP2") &&
           elem?.NomorSP2?.length > 0 &&
+          elem?.TanggalSP2?.length > 0 &&
           elem?.NomorSP2?.length !== undefined &&
           (elem?.LHP === undefined ||
             elem?.LHP.length < 1)
@@ -161,7 +163,9 @@ export const MontungProvider = (props) => {
         return (
           elem?.hasOwnProperty("LHP") &&
           elem?.NomorSP2?.length > 0 &&
-          elem?.LHP?.length > 0
+          elem?.TanggalSP2?.length > 0 &&
+          elem?.LHP?.length > 0 &&
+          elem?.TanggalLHP?.length > 0 
         );
       })
     );

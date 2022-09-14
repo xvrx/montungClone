@@ -131,6 +131,7 @@ const TambahModal = () => {
             setnotifModal(true)
         } else if (
             editActive === false && tambahContainer.NomorSP2 !== '' &&
+            tambahContainer.TanggalSP2 !== '' &&
             tambahContainer.NPWP.length > 0 &&
             tambahContainer.NamaWP.length > 0 &&
             tambahContainer.NomorUsulanPemeriksaan.length > 0 &&
@@ -177,6 +178,7 @@ const TambahModal = () => {
             loading(false)
         } else if (
             editActive === true && tambahContainer.NomorSP2 !== '' &&
+            tambahContainer.TanggalSP2 !== '' &&
             tambahContainer.NPWP.length > 0 &&
             tambahContainer.NamaWP.length > 0 &&
             tambahContainer.NomorUsulanPemeriksaan.length > 0 &&
@@ -192,7 +194,7 @@ const TambahModal = () => {
             setnotifModal(true)
         } else {
             setnotifModalTitle('Data tidak lengkap!')
-            setnotifModalMessage(`Mohon lengkapi form pemeriksaan sebelum update data usulan (minimal memuat Nama, NPWP, Alamat, Nomor Usulan, Tanggal Usulan, Masa, dan Kode Pemeriksaan)`)
+            setnotifModalMessage(`Mohon lengkapi form pemeriksaan sebelum update data usulan (minimal memuat Nama, NPWP, Alamat, Nomor Usulan, Tanggal Usulan, Masa, dan Kode Pemeriksaan) dan tanggal SP2 jika nomor SP2 diinput.`)
             setnotifModalButton(false)
             setnotifModal(true)
         }
@@ -355,7 +357,7 @@ const TambahModal = () => {
                                 <label id='tambah-nomor-usulan-garis' className='tambah-modal-line' htmlFor="tambah-nomor-usulan"></label>
                             </div>
                             <div className='modal-input-container' id='tambah-tanggal-usulan'>
-                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" onChange={e => setTambahContainer({ ...tambahContainer, TanggalUsulan: e.target.value })} value={tambahContainer.TanggalUsulan} />
+                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" disabled={tambahContainer.NomorUsulanPemeriksaan.length < 1 ? true : false} onChange={e => setTambahContainer({ ...tambahContainer, TanggalUsulan: e.target.value })} value={tambahContainer.TanggalUsulan} />
                             </div>
                             {/* instruksi */}
                             <div className='modal-input-container' id='tambah-nomorInstruksi'>
@@ -364,7 +366,7 @@ const TambahModal = () => {
                                 <label id='tambah-nomor-usulan-garis' className='tambah-modal-line' htmlFor="tambah-nomor-instruksi"></label>
                             </div>
                             <div className='modal-input-container' id='tambah-tanggal-instruksi'>
-                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" onChange={e => setTambahContainer({ ...tambahContainer, TanggalInstruksi: e.target.value })} value={tambahContainer.TanggalInstruksi} />
+                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" disabled={tambahContainer.NomorInstruksiPemeriksaan.length < 1 ? true : false} onChange={e => setTambahContainer({ ...tambahContainer, TanggalInstruksi: e.target.value })} value={tambahContainer.TanggalInstruksi} />
                             </div>
                         </div>
                         <div className="tambah-modal-sub-title">
@@ -393,7 +395,7 @@ const TambahModal = () => {
 
                             </div>
                             <div className='modal-input-container' id='tambah-tanggal-usulan'>
-                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" onChange={e => setTambahContainer({ ...tambahContainer, TanggalPenunjukanSupervisor: e.target.value })} value={tambahContainer.TanggalPenunjukanSupervisor} />
+                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" disabled={tambahContainer.PenunjukanSupervisor.length < 1 ? true : false} onChange={e => setTambahContainer({ ...tambahContainer, TanggalPenunjukanSupervisor: e.target.value })} value={tambahContainer.TanggalPenunjukanSupervisor} />
                             </div>
                             {/* Audit Plan */}
                             <div className='modal-input-container' id='tambah-nomorInstruksi'>
@@ -409,7 +411,7 @@ const TambahModal = () => {
                                 </div>
                             </div>
                             <div className='modal-input-container' id='tambah-tanggal-instruksi'>
-                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" onChange={e => setTambahContainer({ ...tambahContainer, TanggalAuditPlan: e.target.value })} value={tambahContainer.TanggalAuditPlan} />
+                                <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" disabled={tambahContainer.AuditPlan.length < 1 ? true : false}  onChange={e => setTambahContainer({ ...tambahContainer, TanggalAuditPlan: e.target.value })} value={tambahContainer.TanggalAuditPlan} />
                             </div>
                         </div>
                         <div className="tambah-modal-sub-title">
@@ -424,10 +426,10 @@ const TambahModal = () => {
                                     <input ref={SP2ref} maxLength={50} autoComplete='off' spellCheck='false' className='modal-input-tambah' onChange={e => SP2Input(e)} value={tambahContainer.NomorSP2} type="text" id='tambah-nomor-SP2' required />
                                     <label id='tambah-nomor-usulan-label' className='tambah-modal-text' htmlFor="tambah-nomor-SP2">NOMOR SP2</label>
                                     <label id='tambah-nomor-usulan-garis' className='tambah-modal-line' htmlFor="tambah-nomor-SP2"></label>
-                                    <p id='input-group-4x-notice'>Jika nomor SP2 diinput maka usulan akan menjadi tunggakan saat submit!</p>
+                                    <p id='input-group-4x-notice'>Jika nomor & tanggal SP2 diinput maka usulan akan menjadi tunggakan saat submit!</p>
                                 </div>
                                 <div className='modal-input-container' id='tambah-tanggal-usulan'>
-                                    <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" onChange={e => setTambahContainer({ ...tambahContainer, TanggalSP2: e.target.value })} value={tambahContainer.TanggalSP2} />
+                                    <input type="date" min='2021-01-31' max='2023-12-31' className="tambah-modal-date" disabled={tambahContainer.NomorSP2.length < 1 ? true : false}   onChange={e => setTambahContainer({ ...tambahContainer, TanggalSP2: e.target.value })} value={tambahContainer.TanggalSP2} />
                                 </div>
                             </div>
                             <div className="tambah-modal-buttons">

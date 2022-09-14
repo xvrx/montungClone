@@ -327,7 +327,7 @@
 
 .modal-input-tambah:focus ~ #input-group-4x-notice,
 .modal-input-tambah:valid ~ #input-group-4x-notice { 
-    transform: translateY(25px);
+    transform: translateY(39px);
     opacity: 1;
 }
 

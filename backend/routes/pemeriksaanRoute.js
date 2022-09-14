@@ -126,8 +126,7 @@ route.patch(
     
     const intendedRecord = await Pemeriksaan.findById(id)
     const nomerSP2 = intendedRecord?.NomorSP2
-
-  
+    const tanggelSP2 = intendedRecord?.TanggalSP2
 
     if (id && payload?.NPWP.length > 0
       && payload?.NamaWP.length > 0
@@ -137,7 +136,8 @@ route.patch(
       && payload?.TanggalUsulan.length > 0
       && payload?.alamatWP.length > 0
       && payload?.NomorSP2 !== null
-      && nomerSP2?.length === 0
+      && (nomerSP2?.length === 0
+      || tanggelSP2?.length === 0)
       && payload?.TanggalSP2 !== null
       ) {
         
@@ -198,6 +198,7 @@ route.patch(
       && payload.TanggalUsulan
       && payload.alamatWP
       && nomerSP2?.length > 0
+      && tanggelSP2?.length > 0
       ) {
 
       const newVer = {

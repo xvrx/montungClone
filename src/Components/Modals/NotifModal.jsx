@@ -43,7 +43,6 @@ const NotifModal = () => {
 
     function usulanSubmit() {
         loading(true)
-
         axios.post(serverOrigin + 'pemeriksaan/montung', tambahContainer, { withCredentials: true })
             .then((res) => {
                 const a = res?.data?.data
