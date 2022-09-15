@@ -1,6 +1,7 @@
 function numify(a) {
-  const b = parseInt(a);
-  return b || 0;
+  if (typeof a === 'number') {
+    return a
+  } else return 0
 }
 
 module.exports = { numify };

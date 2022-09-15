@@ -130,7 +130,7 @@ const TunggakanModal = () => {
   }
 
   function updateTunggakan() {
-    if (tunggakanContainer.LHP === "") {
+    if (tunggakanContainer.LHP === "" || tunggakanContainer.TanggalLHP === "") {
       loading(true);
 
       let tunggakanIdx = montung.findIndex(
@@ -174,7 +174,7 @@ const TunggakanModal = () => {
         });
 
       loading(false);
-    } else if (tunggakanContainer.LHP !== "") {
+    } else if (tunggakanContainer.LHP !== "" && tunggakanContainer.TanggalLHP !== "") {
       setnotifModalTitle("LHP telah selesai?");
       setnotifModalMessage(
         `Update status data Tunggakan atas ${tunggakanContainer.NamaWP} (${tunggakanContainer.NPWP}) menjadi LHP?`
@@ -1234,7 +1234,7 @@ const TunggakanModal = () => {
                       NOMOR LHP
                     </label>
                     <p id="modal-newInput4-notice">
-                      Jika nomor LHP diinput maka tunggakan akan pindah ke tab
+                      Jika nomor dan tanggal LHP diinput maka tunggakan akan pindah ke tab
                       LHP Selesai!
                     </p>
                     <label

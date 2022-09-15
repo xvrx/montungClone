@@ -128,7 +128,9 @@ route.patch(
     const intendedRecord = await Pemeriksaan.findById(id)
     const nomerSP2 = intendedRecord?.NomorSP2
     const tanggelSP2 = intendedRecord?.TanggalSP2
+    const tanggelLHP = intendedRecord?.TanggalLHP
     const nomerLHP = intendedRecord?.LHP
+
 
     if (id && payload?.NPWP.length > 0
       && payload?.NamaWP.length > 0
@@ -199,12 +201,16 @@ route.patch(
       && payload.NomorUsulanPemeriksaan
       && payload.TanggalUsulan
       && payload.alamatWP
-      && payload.LHP.length < 2
-      && payload.tanggalLHP < 2
-      && nomerLHP?.length < 2
+      && (nomerLHP?.length < 2 || tanggelLHP?.length < 2)
       && nomerSP2?.length > 0
       && tanggelSP2?.length > 0
       ) {
+
+      if (nomerSP2?.length > 0) {
+        console.log("updating tunggakan")
+      } else if (payload.LHP.length > 0) {
+        console.log("updating to LHP ")
+      }
 
       const newVer = {
       PIC: payload?.PIC,
@@ -228,73 +234,28 @@ route.patch(
       PotensiDSPP: caster.numify(payload?.PotensiDSPP),
     };
 
-    if (id && payload) {
-      console.log("updating tunggakan ...")
-
-      try {
-        Pemeriksaan.findByIdAndUpdate(
-          id,
-          newVer,
-          { new: true },
-          (err, newRec) => {
-            if (err) {
-              res.status(500).json({ message: "server failed to update!" });
-            } else {
-              return res.status(200).json({
-                message: "data is successfully updated!",
-                nilai: newRec.NilaiKonversi,
-              });
-            }
+    try {
+      Pemeriksaan.findByIdAndUpdate(
+        id,
+        newVer,
+        { new: true },
+        (err, newRec) => {
+          if (err) {
+            res.status(500).json({ message: "server failed to update!" });
+          } else {
+            return res.status(200).json({
+              message: "data is successfully updated!",
+              nilai: newRec.NilaiKonversi,
+            });
           }
-        );
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "failed to update data in DB!" });
-      }
-    } else {
-      return res.status(400).json({ message: "req _id or body not found!" });
-    }} else if (
-      id && payload.NPWP 
-      && payload.NamaWP 
-      && payload.PeriodePajak
-      && payload.Kode
-      && payload.NomorUsulanPemeriksaan
-      && payload.TanggalUsulan
-      && payload.alamatWP
-      && nomerSP2?.length > 0
-      && tanggelSP2?.length > 0
-      && payload.LHP.length > 0
-      && payload.tanggalLHP > 0
-      && nomerLHP?.length > 0
-    ) {
-      try {
-
-        const pencairanUpdate =  {
-
         }
-
-        Pemeriksaan.findByIdAndUpdate(
-          id,
-          pencairanUpdate,
-          { new: true },
-          (err, newRec) => {
-            if (err) {
-              res.status(500).json({ message: "server failed to update!" });
-            } else {
-              return res.status(200).json({
-                message: "data is successfully updated!",
-                // nilai: newRec.NilaiKonversi,
-              });
-            }
-          }
-        );
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: "failed to update data in DB!" });
-      }
-    } 
-    else {
-      res.status(404).json({ message: "data submitted is not adequate!" });
+      );
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "failed to update data in DB!" });
+    }
+  } else {
+      res.status(404).json({ message: "data submitted is inadequate!" });
     }
   }
 );
@@ -315,6 +276,7 @@ route.patch("/pencairan/:id", verify, async (req, res) => {
   // console.log("cast result :", caster.numify(""));
 
   if (id && payload) {
+    console.log("updating Pencairan...")
     try {
       Pemeriksaan.findByIdAndUpdate(id, opt, { new: true }, (err, newRec) => {
         if (err) {

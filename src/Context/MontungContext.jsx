@@ -32,7 +32,8 @@ export const MontungProvider = (props) => {
   }
 
   function sumFloat(obj, objKey) {
-    return obj?.reduce((a, b) => a + (parseFloat(b[objKey]) || 0), 0);
+   const total =  obj?.reduce((a, b) => a + (parseFloat(b[objKey]) || 0), 0);
+   return parseFloat(total.toFixed(2))
   }
 
   function plus(...args) {
@@ -153,8 +154,8 @@ export const MontungProvider = (props) => {
           elem?.NomorSP2?.length > 0 &&
           elem?.TanggalSP2?.length > 0 &&
           elem?.NomorSP2?.length !== undefined &&
-          (elem?.LHP === undefined ||
-            elem?.LHP.length < 1)
+          elem?.LHP?.length < 2 ||
+          elem?.TanggalLHP?.length < 2
         );
       })
     );

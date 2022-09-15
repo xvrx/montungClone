@@ -14,42 +14,33 @@ function ketepatanWaktu(date1, date2) {
 
 async function countKonversi(req, res, next) {
   const sp2 = req?.body?.NomorSP2?.length > 0;
+  const tanggalSP2 = new Date(req?.body?.TanggalSP2);
   const lhp = req?.body?.LHP?.length > 0;
+  const tanggualLHP =  req?.body?.TanggalLHP?.length > 0;
 
+  const konversi = await KonversiModel.findOne({
+    Kode: req?.body?.Kode
+  }).exec();
   //   console.log(`SP2: ${sp2}, lhp: ${lhp}`);
 
-  if (sp2 && !lhp) {
+  if (konversi !== null && sp2 && (!lhp || !tanggualLHP)) {
     const currentDate = new Date();
-    const tanggalSP2 = new Date(req?.body?.TanggalSP2);
-    const ketepatan = ketepatanWaktu(tanggalSP2, currentDate);
-    const konversi = await KonversiModel.findOne({
-      Kode: req?.body?.Kode,
-    }).exec();
-    // console.log(konversi, ketepatan);
+    
+    const ketepatan_sp2 = ketepatanWaktu(tanggalSP2, currentDate);
+    req.body.NilaiKonversi = konversi[ketepatan_sp2]
 
-    // console.log("konversi :", konversi[ketepatan]);
-    if (!konversi) {
-      req.body.NilaiKonversi = 0;
+    console.log(`konversi (${ketepatan_sp2}):`, konversi[ketepatan_sp2])
+    
+    } else if (sp2 && lhp && tanggualLHP) {
+      const ketepatan_lhp = ketepatanWaktu(tanggalSP2, new Date(tanggualLHP));
+      req.body.NilaiKonversi = konversi[ketepatan_lhp];
+      console.log(`konversi (${ketepatan_lhp}):`, konversi[ketepatan_lhp])
     } else {
-      req.body.NilaiKonversi = konversi[ketepatan];
-    }
+    req.body.NilaiKonversi = 0;
+    console.log(`konversi (error):`, 0)
   }
-
-  if (sp2 && lhp) {
-    const currentDate = new Date(req?.body?.TanggalLHP);
-    const tanggalSP2 = new Date(req?.body?.TanggalSP2);
-    const ketepatan = ketepatanWaktu(tanggalSP2, currentDate);
-    const konversi = await KonversiModel.findOne({
-      Kode: req?.body?.Kode,
-    }).exec();
-    const nilaiKonversi = konversi[ketepatan];
-    // console.log('konversi :', konversi[ketepatan])
-    if (!nilaiKonversi) {
-      req.body.NilaiKonversi = 0;
-    } else {
-      req.body.NilaiKonversi = konversi[ketepatan];
-    }
-  }
+  
+  
   next();
 }
 

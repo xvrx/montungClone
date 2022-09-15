@@ -10,7 +10,7 @@ axios.defaults.withCredentials = true
 
 const NotifModal = () => {
 
-    const { setTunggakanModal, notifStatus, setnotifModalTitle, setnotifModalMessage, setnotifModalButton, setnotifModal, notifModalMessage, notifModalTitle, notifModalButton, settambahModal, setEditActive
+    const { setTunggakanModal,setNotifStatus, notifStatus, setnotifModalTitle, setnotifModalMessage, setnotifModalButton, setnotifModal, notifModalMessage, notifModalTitle, notifModalButton, settambahModal, setEditActive
     } = useContext(ModalContext)
 
     const { tahapanContainer, settahapanContainer, tunggakanContainer, setTunggakanContainer, tambahContainer, setTambahContainer, emptyContainer } = useContext(TambahContext)
@@ -85,58 +85,73 @@ const NotifModal = () => {
                 const montungUpdated = [...montung]
                 montungUpdated[usulanIdx] = tambahContainer
                 setMontung(montungUpdated)
+                setTambahContainer(emptyContainer);
+                settambahModal(false);
+                setnotifModal(false)
+                setnotifModalButton(false)
+                setnotifModalTitle('')
+                setnotifModalMessage('')
             }).catch((err) => {
                 console.log(err.response)
                 if (err.response.data.login === false) {
                     setTimeout(() => { window.location.reload() }, 1000);
                 }
             })
-        setTambahContainer(emptyContainer);
-        settambahModal(false);
-        setnotifModal(false)
-        setnotifModalButton(false)
-        setnotifModalTitle('')
-        setnotifModalMessage('')
+        
     }
 
     function tunggakanLHPupdate() {
-        loading(true)
+        loading(true);
 
-        let tunggakanIdx = montung.findIndex(i => i._id === tunggakanContainer._id)
-
+        let tunggakanIdx = montung.findIndex(
+          (i) => i._id === tunggakanContainer._id
+        );
+        const montungUpdated = [...montung];
+        montungUpdated[tunggakanIdx] = tunggakanContainer;
+        const tanggalMulai =
+          montungUpdated[tunggakanIdx].Tahapan[
+            montungUpdated[tunggakanIdx].Tahapan.length - 1
+          ]?.tanggal;
+  
+        if (!tanggalMulai) {
+          montungUpdated[tunggakanIdx].TanggalMulaiPemeriksaan = "";
+        } else {
+          montungUpdated[tunggakanIdx].TanggalMulaiPemeriksaan = tanggalMulai;
+          setTunggakanContainer({
+            ...tunggakanContainer,
+            TanggalMulaiPemeriksaan: tanggalMulai,
+          });
+        }
+        
         axios
-        .patch(
-          serverOrigin + `pemeriksaan/montung/${tunggakanContainer._id}`,
-          tunggakanContainer,
-          { withCredentials: true }
-        )
-        .then((res) => {
-          console.log(res);
-          montungUpdated[tunggakanIdx].NilaiKonversi = res?.data?.nilai;
-          setMontung(montungUpdated);
+          .patch(
+            serverOrigin + `pemeriksaan/montung/${tunggakanContainer._id}`,
+            tunggakanContainer,
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res);
+            montungUpdated[tunggakanIdx].NilaiKonversi = res?.data?.nilai;
+            setMontung(montungUpdated);
+            setTunggakanModal(false);
+            setTunggakanContainer(emptyContainer);
+          })
+          .catch((err) => {
+            if (err?.response?.data?.login === false) {
+              window.location.reload()
+            }
+            console.log(err.response);
+          });
 
-          const montungUpdated = [...montung]
-          montungUpdated[tunggakanIdx] = tunggakanContainer
-          setMontung(montungUpdated)
-          setTunggakanContainer(emptyContainer);
-          setnotifModal(false)
-          setTunggakanModal(false);
-          setnotifModalButton(false)
-          setnotifModalTitle('')
-          setnotifModalMessage('')
-          
-
-          setTunggakanModal(false);
-          setTunggakanContainer(emptyContainer);
-        })
-        .catch((err) => {
-          if (err?.response?.data?.login === false) {
-            window.location.reload()
-          }
-          console.log(err.response);
-        });
-
-        loading(false)
+          setnotifModalTitle("");
+          setnotifModalMessage(
+            ``
+          );
+          setNotifStatus("");
+          setnotifModalButton(false);
+          setnotifModal(false);
+  
+        loading(false);
     }
 
     function tahapanDeleteConfirm() {

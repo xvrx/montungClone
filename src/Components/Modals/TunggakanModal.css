@@ -1084,7 +1084,7 @@ input[type='date'] {
 
 .modal-newInput4-input:focus ~ #modal-newInput4-notice,
 .modal-newInput4-input:valid ~ #modal-newInput4-notice { 
-    transform: translateY(25px);
+    transform: translateY(29px);
     opacity: 1;
     
 }
