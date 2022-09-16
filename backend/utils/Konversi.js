@@ -29,17 +29,16 @@ async function countKonversi(req, res, next) {
     const ketepatan_sp2 = ketepatanWaktu(tanggalSP2, currentDate);
     req.body.NilaiKonversi = konversi[ketepatan_sp2]
 
-    console.log(`konversi (${ketepatan_sp2}):`, konversi[ketepatan_sp2])
+    // console.log(`konversi - sp2 (${ketepatan_sp2}):`, konversi[ketepatan_sp2])
     
     } else if (sp2 && lhp && tanggualLHP) {
       const ketepatan_lhp = ketepatanWaktu(tanggalSP2, new Date(tanggualLHP));
       req.body.NilaiKonversi = konversi[ketepatan_lhp];
-      console.log(`konversi (${ketepatan_lhp}):`, konversi[ketepatan_lhp])
+      // console.log(`konversi - lhp (${ketepatan_lhp}):`, konversi[ketepatan_lhp])
     } else {
     req.body.NilaiKonversi = 0;
     console.log(`konversi (error):`, 0)
   }
-  
   
   next();
 }
